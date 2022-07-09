@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <LangVersion>Latest</LangVersion>
         <Nullable>disable</Nullable>
         <Description>Reusable Retry Logic for transient fault handling with exponential backoff and stochastic exponential backoff.</Description>
@@ -14,9 +14,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Include="..\BetterBackoff.png">
-        <Pack>True</Pack>
-        <PackagePath>\</PackagePath>
-      </None>
+        <None Include="..\BetterBackoff.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
     </ItemGroup>
 </Project>
