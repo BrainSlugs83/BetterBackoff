@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <Title>Better Backoff</Title>
         <TargetFramework>netstandard2.1</TargetFramework>
         <LangVersion>Latest</LangVersion>
         <Nullable>disable</Nullable>
@@ -13,6 +14,7 @@
         <PackageTags>Better;Retry;Backoff;Exponential;Stochastic;BetterBackoff;Transient;Exception;Fault;Handling</PackageTags>
         <PackageReadmeFile>README.MD</PackageReadmeFile>
         <PackageLicenseExpression>CC0-1.0</PackageLicenseExpression>
+        <NeutralLanguage>en</NeutralLanguage>
     </PropertyGroup>
 
     <ItemGroup>
@@ -21,8 +23,8 @@
             <PackagePath>\</PackagePath>
         </None>
         <None Include="..\README.MD">
-          <Pack>True</Pack>
-          <PackagePath>\</PackagePath>
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
         </None>
     </ItemGroup>
 </Project>
