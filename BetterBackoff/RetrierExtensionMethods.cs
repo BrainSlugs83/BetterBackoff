@@ -43,7 +43,7 @@ namespace BetterBackoff
         public static IRetrier WithExponentialBackOff(this IRetrier @this, double stepMultiplier = 2.0d)
         {
             if (@this is null) { throw new NullReferenceException(); }
-            @this.GetNextTimeSpan = t => t.Multiply(stepMultiplier);
+            @this.GetNextTimeSpan = t => TimeSpan.FromSeconds(t.TotalSeconds * stepMultiplier);
             return @this;
         }
 
@@ -52,12 +52,15 @@ namespace BetterBackoff
             if (@this is null) { throw new NullReferenceException(); }
             var rnd = @this.GetNewRandom();
 
-            @this.GetNextTimeSpan = t => t.Multiply
+            @this.GetNextTimeSpan = t => TimeSpan.FromSeconds
             (
-                minimumStepMultiplier +
+                t.TotalSeconds *
                 (
-                    rnd.NextDouble() *
-                    (maximumStepMultiplier - minimumStepMultiplier)
+                    minimumStepMultiplier +
+                    (
+                        rnd.NextDouble() *
+                        (maximumStepMultiplier - minimumStepMultiplier)
+                    )
                 )
             );
 

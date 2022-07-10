@@ -15,7 +15,7 @@ namespace BetterBackoff
         TimeSpan IRetrier.InitialRetryDelay { get; set; } = TimeSpan.FromSeconds(.25d);
         TimeSpan IRetrier.MaximumRetryDelay { get; set; } = TimeSpan.FromSeconds(30d);
 
-        Func<TimeSpan, TimeSpan> IRetrier.GetNextTimeSpan { get; set; } = t => t.Multiply(2d);
+        Func<TimeSpan, TimeSpan> IRetrier.GetNextTimeSpan { get; set; } = t => TimeSpan.FromSeconds(t.TotalSeconds * 2d);
         Func<TimeSpan, CancellationToken, Task> IRetrier.DelayCallback { get; set; } = async (t, c) => await Task.Delay(t, c);
         Func<Random> IRetrier.GetNewRandom { get; set; } = () => new Random(Guid.NewGuid().GetHashCode());
 
